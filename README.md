@@ -151,6 +151,46 @@ novel-arch-skill/
 
 ---
 
+## ⭐ 如果对你有帮助，请支持一下！
+
+如果这个项目对你有帮助，可以：
+
+### 🌟 点个 Star
+这是对我最大的鼓励和支持！
+
+[![GitHub stars](https://img.shields.io/github/stars/ahao0625/novel-arch-skill?style=social)](https://github.com/ahao0625/novel-arch-skill/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/ahao0625/novel-arch-skill?style=social)](https://github.com/ahao0625/novel-arch-skill/network/members)
+
+### ☕ 赞助一杯咖啡
+如果这个技能帮你搭建了顺手的创作项目，可以考虑赞助我一杯咖啡，让我更有动力继续优化！
+
+**赞助方式**：
+- GitHub Sponsors（推荐）：点击右侧的 [Sponsor] 按钮
+- 微信/支付宝：扫码见下方
+
+**扫码打赏**：
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="assets/wechat-qr.png" width="200" alt="微信收款码"/><br/>
+      <strong>微信扫一扫</strong>
+    </td>
+    <td align="center">
+      <img src="assets/alipay-qr.png" width="200" alt="支付宝收款码"/><br/>
+      <strong>支付宝扫一扫</strong>
+    </td>
+  </tr>
+</table>
+
+**你的支持将用于**：
+- 持续优化架构方案和技能
+- 添加更多创作场景适配
+- 维护参考文档和示例
+- 回复用户反馈和问题
+
+---
+
 ## 贡献
 
 欢迎提交 Issue 和 Pull Request！详见 [CONTRIBUTING.md](CONTRIBUTING.md)。
