@@ -1,0 +1,79 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  quality-checks:
+    name: Quality Checks
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Check for trailing whitespace
+      run: |
+        if grep -r '[[:space:]]$' --include='*.md' --include='*.sh' --include='*.py' --include='*.json' . ; then
+          echo "Found trailing whitespace!"
+          exit 1
+        fi
+
+    - name: Check file endings
+      run: |
+        if ! [ -z "$(find . -type f ! -path './.git/*' ! -name '.DS_Store' -exec sh -c 'tail -c1 "$1" | grep -q .' _ {} \; -print 2>/dev/null)" ]; then
+          echo "Some files don't end with a newline!"
+          exit 1
+        fi
+
+    - name: Count files
+      run: |
+        md_count=$(find . -name '*.md' -type f ! -path './.git/*' | wc -l)
+        py_count=$(find . -name '*.py' -type f ! -path './.git/*' | wc -l)
+        echo "Found $md_count Markdown files"
+        echo "Found $py_count Python files"
+
+  link-check:
+    name: Link Check
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Check local file links
+      run: |
+        grep -rhoE '\]\([a-zA-Z0-9._/()-]+\.md\)' --include='*.md' . | \
+          sed 's/^](\(.*\))/\1/' | \
+          grep -v '^http' | \
+          grep -v '^mailto' | \
+          grep -v '^#' | \
+          sort -u | \
+          while read link; do
+            if [ ! -f "$link" ]; then
+              echo "Broken link: $link"
+              exit 1
+            fi
+          done
+        echo "All local links are valid"
+
+  markdown-lint:
+    name: Markdown Lint
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Run Markdown linter
+      uses: DavidAnson/markdownlint-cli2-action@v13
+      with:
+        globs: "**/*.md"
+        config: ".markdownlint.json"

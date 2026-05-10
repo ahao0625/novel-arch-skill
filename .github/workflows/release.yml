@@ -1,0 +1,39 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Create Release
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Get tag version
+      id: tag
+      run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        body_path: CHANGELOG.md
+        draft: false
+        prerelease: ${{ contains(steps.tag.outputs.VERSION, 'alpha') || contains(steps.tag.outputs.VERSION, 'beta') || contains(steps.tag.outputs.VERSION, 'rc') }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Generate Release Notes
+      run: |
+        echo "## Release ${{ steps.tag.outputs.VERSION }}" >> $GITHUB_STEP_SUMMARY
+        echo "Release created successfully!" >> $GITHUB_STEP_SUMMARY
