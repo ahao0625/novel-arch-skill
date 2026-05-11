@@ -8,6 +8,7 @@
     <a href="https://github.com/ahao0625/novel-arch-skill/issues"><img src="https://img.shields.io/github/issues/ahao0625/novel-arch-skill" alt="GitHub issues"></a>
     <a href="https://github.com/ahao0625/novel-arch-skill"><img src="https://img.shields.io/github/last-commit/ahao0625/novel-arch-skill" alt="GitHub last commit"></a>
     <a href="https://github.com/ahao0625/novel-arch-skill/releases"><img src="https://img.shields.io/github/v/release/ahao0625/novel-arch-skill" alt="GitHub release"></a>
+    <a href="https://github.com/ahao0625/novel-arch-skill"><img src="https://img.shields.io/badge/Maintained-YES!-green.svg" alt="Maintained"></a>
   </p>
 </p>
 
