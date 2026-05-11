@@ -1,22 +1,16 @@
-<p align="center">
-  <h1 align="center">Novel Arch</h1>
-  <p align="center">AI 网文创作项目架构搭建技能</p>
-  <p align="center">
-    <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a>
-    <a href="https://github.com/ahao0625/novel-arch-skill/stargazers"><img src="https://img.shields.io/github/stars/ahao0625/novel-arch-skill?style=flat&logo=github" alt="GitHub stars"></a>
-    <a href="https://github.com/ahao0625/novel-arch-skill/network/members"><img src="https://img.shields.io/github/forks/ahao0625/novel-arch-skill?style=flat&logo=github" alt="GitHub forks"></a>
-    <a href="https://github.com/ahao0625/novel-arch-skill/issues"><img src="https://img.shields.io/github/issues/ahao0625/novel-arch-skill" alt="GitHub issues"></a>
-    <a href="https://github.com/ahao0625/novel-arch-skill"><img src="https://img.shields.io/github/last-commit/ahao0625/novel-arch-skill" alt="GitHub last commit"></a>
-    <a href="https://github.com/ahao0625/novel-arch-skill/releases"><img src="https://img.shields.io/github/v/release/ahao0625/novel-arch-skill" alt="GitHub release"></a>
-    <a href="https://github.com/ahao0625/novel-arch-skill"><img src="https://img.shields.io/badge/Maintained-YES!-green.svg" alt="Maintained"></a>
-  </p>
-</p>
+# Novel Arch
 
-<div align="center">
+> **AI 网文创作项目架构搭建技能** — 任何 AI 平台通用。给大纲，自动生成全部项目文件。
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub stars](https://img.shields.io/github/stars/ahao0625/novel-arch-skill?style=flat&logo=github)](https://github.com/ahao0625/novel-arch-skill/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/ahao0625/novel-arch-skill?style=flat&logo=github)](https://github.com/ahao0625/novel-arch-skill/network/members)
+[![GitHub issues](https://img.shields.io/github/issues/ahao0625/novel-arch-skill)](https://github.com/ahao0625/novel-arch-skill/issues)
+[![GitHub last commit](https://img.shields.io/github/last-commit/ahao0625/novel-arch-skill)](https://github.com/ahao0625/novel-arch-skill)
+[![GitHub release](https://img.shields.io/github/v/release/ahao0625/novel-arch-skill)](https://github.com/ahao0625/novel-arch-skill/releases)
+[![Maintained](https://img.shields.io/badge/Maintained-YES!-green.svg)](https://github.com/ahao0625/novel-arch-skill)
 
 [功能](#功能) · [使用方式](#使用方式) · [操作](#操作) · [安装](#安装) · [贡献](#贡献) · [许可](#许可)
-
-</div>
 
 ---
 
