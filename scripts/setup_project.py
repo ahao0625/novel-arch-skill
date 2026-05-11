@@ -26,6 +26,18 @@ def write_file(path, content=""):
     with open(path, "w", encoding="utf-8") as f:
         f.write(content)
 
+def to_chinese_num(n):
+    """阿拉伯数字转中文数字（1→一, 12→十二）"""
+    chinese_digits = ["零", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十"]
+    if n <= 10:
+        return chinese_digits[n]
+    elif n < 20:
+        return "十" + (chinese_digits[n % 10] if n % 10 != 0 else "")
+    elif n % 10 == 0:
+        return chinese_digits[n // 10] + "十"
+    else:
+        return chinese_digits[n // 10] + "十" + chinese_digits[n % 10]
+
 def setup_project(project_dir, novel_type, volumes, with_optional):
     project_dir = Path(project_dir)
     novel_type_name = novel_type
@@ -65,13 +77,13 @@ def setup_project(project_dir, novel_type, volumes, with_optional):
     mkdir_p(project_dir / "03_故事大纲")
     write_file(project_dir / "03_故事大纲" / "全书故事大纲.md")
     for v in range(1, volumes + 1):
-        write_file(project_dir / "03_故事大纲" / f"第{v}卷·章节纲要.md")
+        write_file(project_dir / "03_故事大纲" / f"第{to_chinese_num(v)}卷·章节纲要.md")
 
     # 04 时间线
     mkdir_p(project_dir / "04_时间线")
     write_file(project_dir / "04_时间线" / "完整时间线.md")
     for v in range(1, volumes + 1):
-        write_file(project_dir / "04_时间线" / f"第{v}卷时间线.md")
+        write_file(project_dir / "04_时间线" / f"第{to_chinese_num(v)}卷时间线.md")
 
     # 05 伏笔与悬念
     mkdir_p(project_dir / "05_伏笔与悬念")
@@ -80,7 +92,7 @@ def setup_project(project_dir, novel_type, volumes, with_optional):
     # 06 正文内容
     mkdir_p(project_dir / "06_正文内容")
     for v in range(1, volumes + 1):
-        vol_dir = project_dir / "06_正文内容" / f"第{v}卷"
+        vol_dir = project_dir / "06_正文内容" / f"第{to_chinese_num(v)}卷"
         mkdir_p(vol_dir)
         write_file(vol_dir / "卷概述.md")
 
@@ -88,18 +100,18 @@ def setup_project(project_dir, novel_type, volumes, with_optional):
     mkdir_p(project_dir / "07_章节索引")
     write_file(project_dir / "07_章节索引" / "总索引.md")
     for v in range(1, volumes + 1):
-        write_file(project_dir / "07_章节索引" / f"第{v}卷索引.md")
+        write_file(project_dir / "07_章节索引" / f"第{to_chinese_num(v)}卷索引.md")
 
     # 08 创作日志
     mkdir_p(project_dir / "08_创作日志")
     for v in range(1, volumes + 1):
-        write_file(project_dir / "08_创作日志" / f"第{v}卷创作日志.md")
+        write_file(project_dir / "08_创作日志" / f"第{to_chinese_num(v)}卷创作日志.md")
     write_file(project_dir / "08_创作日志" / "卷内章节摘要缓存.md")
 
     # 09 审计报告
     mkdir_p(project_dir / "09_审计报告")
     for v in range(1, volumes + 1):
-        mkdir_p(project_dir / "09_审计报告" / f"第{v}卷")
+        mkdir_p(project_dir / "09_审计报告" / f"第{to_chinese_num(v)}卷")
 
     # 10 创作模板
     mkdir_p(project_dir / "10_创作模板")
@@ -252,7 +264,7 @@ f"""# 项目配置
 
         # 12 废弃稿
         for v in range(1, volumes + 1):
-            mkdir_p(project_dir / "12_废弃稿" / f"第{v}卷")
+            mkdir_p(project_dir / "12_废弃稿" / f"第{to_chinese_num(v)}卷")
 
         # 13 数据统计
         mkdir_p(project_dir / "13_数据统计")
