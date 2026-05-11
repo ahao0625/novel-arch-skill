@@ -5,11 +5,15 @@ description: |
   当用户提及"新建小说项目"、"搭建设定目录"、"初始化网文项目"、"按照架构创建"、"启动新书"、"创建创作项目"、"开新书"、"初始化项目"等意图时触发。
   也支持：给了一个大纲要求建项目、要求写章节、要求审计检查、要求更新设定、要求关卷存档。
   负责：根据通用架构方案创建完整的项目目录结构、填充核心文件、配置守御体系。
-  WorkBuddy 及其他 AI 平台通用。AI 读取内置的 ai-operations-manual.md 按指令执行。
+  WorkBuddy 及其他 AI 平台通用。
 agent_created: true
 ---
 
 # Novel Arch — 网文创作项目架构搭建技能
+
+> ⚠️ **AI 执行说明**：本文档只告诉用户这个技能是什么。详细的执行指令（5 个操作的完整步骤、字段规范、自检规则）在 `references/ai-operations-manual.md` 中。
+>
+> **AI 加载本技能后的第一件事：读取 `references/ai-operations-manual.md`，那才是你的执行指南。**
 
 ## 这是什么
 
@@ -25,25 +29,27 @@ agent_created: true
 
 ## 使用方式
 
-### WorkBuddy
+### WorkBuddy 用户
 
-直接输入以下任意指令即可触发：
+输入以下任意指令触发：
 
 ```
 "新建一个小说项目"
-"开新书"
-"按照架构方案创建项目"
-"帮我把这本小说建好项目"
-"写第 3 章"
-"对最近 10 章做一次审计"
+"开新书，以下是大纲..."
+"继续写第 5 章"
+"审计最近 10 章"
 "本卷写完了"
 ```
 
-如果有大纲/设定文档，一并提供，AI 会自动拆解填充到对应文件中。
+AI 会自动读取 `references/ai-operations-manual.md` 并按手册执行。
 
-### 其他 AI 平台
+### 其他 AI 平台用户
 
-将 `references/ai-operations-manual.md` 的内容粘贴到 AI 对话中作为前置指令，然后输入你的需求。
+```
+第一步：将 references/ai-operations-manual.md 的内容粘贴到 AI 对话中
+第二步：输入你的需求，例如"新建一个玄幻小说项目，以下是大纲..."
+第三步：AI 按手册执行
+```
 
 ## 前提条件
 
@@ -54,7 +60,7 @@ agent_created: true
 
 | 文件 | 说明 |
 |:---|:---|
-| `SKILL.md` | 技能定义（用户视角：这是什么、怎么用） |
-| `references/ai-operations-manual.md` | AI 操作手册（AI 执行时读取的完整指令集） |
+| `SKILL.md` | **本文件。** 用户视角的技能说明。AI 加载后应先读取操作手册。 |
+| `references/ai-operations-manual.md` | **AI 操作手册。** AI 执行时的完整指令集（5 个操作的全部步骤）。 |
 | `references/ai-novel-architecture.md` | 架构方案全文（参考文档） |
 | `scripts/setup_project.py` | 辅助搭建脚本（部分平台可用） |
